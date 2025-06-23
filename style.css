@@ -10,3 +10,23 @@ canvas {
   border: 2px solid #ccc;
   border-radius: 10px;
 }
+/* Add this to style.css */
+
+input[type="file"],
+#downloadBtn {
+  font-size: 1.5rem;       /* bigger text */
+  padding: 14px 24px;      /* more clickable area */
+  margin: 20px auto;       /* space around */
+  display: inline-block;   /* needed for centering/padding */
+  border: none;            
+  background: #e63946;      
+  color: #fff;             
+  border-radius: 8px;      
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+input[type="file"]:hover,
+#downloadBtn:hover {
+  background: #d62839;
+}
