@@ -19,6 +19,23 @@ upload.addEventListener("change", function () {
   };
   reader.readAsDataURL(upload.files[0]);
 });
+img.onload = function () {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Create circular clipping path
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2, 0, Math.PI * 2, true);
+  ctx.closePath();
+  ctx.clip();
+
+  // Draw uploaded photo inside circular clip
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  ctx.restore();
+
+  // Draw the frame on top (frame.png must be a transparent PNG)
+  ctx.drawImage(frame, 0, 0, canvas.width, canvas.height);
+};
 
 document.getElementById("downloadBtn").addEventListener("click", function () {
   const link = document.createElement("a");
