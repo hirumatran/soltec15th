@@ -9,18 +9,7 @@ upload.addEventListener("change", function () {
   reader.onload = function (e) {
     const img = new Image();
     img.onload = function () {
-      // Draw uploaded image
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      // Draw frame on top
-      ctx.drawImage(frame, 0, 0, canvas.width, canvas.height);
-    };
-    img.src = e.target.result;
-  };
-  reader.readAsDataURL(upload.files[0]);
-});
-img.onload = function () {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // Create circular clipping path
   ctx.save();
@@ -35,7 +24,13 @@ img.onload = function () {
 
   // Draw the frame on top (frame.png must be a transparent PNG)
   ctx.drawImage(frame, 0, 0, canvas.width, canvas.height);
-};
+
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(upload.files[0]);
+});
+ 
 
 document.getElementById("downloadBtn").addEventListener("click", function () {
   const link = document.createElement("a");
