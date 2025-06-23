@@ -11,19 +11,19 @@ upload.addEventListener("change", function () {
     img.onload = function () {
        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Create circular clipping path
-  ctx.save();
-  ctx.beginPath();
-  ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2, 0, Math.PI * 2, true);
-  ctx.closePath();
-  ctx.clip();
-
-  // Draw uploaded photo inside circular clip
-  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-  ctx.restore();
-
-  // Draw the frame on top (frame.png must be a transparent PNG)
-  ctx.drawImage(frame, 0, 0, canvas.width, canvas.height);
+        // Create circular clipping path
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2, 0, Math.PI * 2, true);
+        ctx.closePath();
+        ctx.clip();
+      
+        // Draw uploaded photo inside circular clip
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        ctx.restore();
+      
+        // Draw the frame on top (frame.png must be a transparent PNG)
+        ctx.drawImage(frame, 0, 0, canvas.width, canvas.height);
 
     };
     img.src = e.target.result;
